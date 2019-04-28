@@ -7,13 +7,21 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="CTF吗？只是自己前几天做的密码题和zip文件题，今天做一个总结。 一、Crypto1.恺撒七世题目描述：    说实话，凯撒特别喜欢自己的儿子，还准备把自己家金库密码偷偷告诉他：camatiabpmpmilntioqavwbpqvoabwxugabmx恺撒密码在上一个博客已经解释过了，是通过一定数值的偏移进行加密的简单的加密方法    这道题的思路就是凯撒七世喜欢他的儿子，很明显，恺撒八世的“8">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/04/02/ctf/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CTF吗？只是自己前几天做的密码题和zip文件题，今天做一个总结。 一、Crypto1.恺撒七世题目描述：    说实话，凯撒特别喜欢自己的儿子，还准备把自己家金库密码偷偷告诉他：camatiabpmpmilntioqavwbpqvoabwxugabmx恺撒密码在上一个博客已经解释过了，是通过一定数值的偏移进行加密的简单的加密方法    这道题的思路就是凯撒七世喜欢他的儿子，很明显，恺撒八世的“8">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190329170413616.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190401194019178.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190401194303424.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM3NTI1NQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-04-01T13:31:49.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="CTF吗？只是自己前几天做的密码题和zip文件题，今天做一个总结。 一、Crypto1.恺撒七世题目描述：    说实话，凯撒特别喜欢自己的儿子，还准备把自己家金库密码偷偷告诉他：camatiabpmpmilntioqavwbpqvoabwxugabmx恺撒密码在上一个博客已经解释过了，是通过一定数值的偏移进行加密的简单的加密方法    这道题的思路就是凯撒七世喜欢他的儿子，很明显，恺撒八世的“8">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190329170413616.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,9 +68,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-ctf" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ctf" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/04/02/ctf/" class="article-date">
   <time datetime="2019-04-02T05:13:48.439Z" itemprop="datePublished">2019-04-02</time>
@@ -134,87 +140,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-密码学" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/04/01/密码学/" class="article-date">
-  <time datetime="2019-04-01T13:26:08.259Z" itemprop="datePublished">2019-04-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="密码学初识"><a href="#密码学初识" class="headerlink" title="密码学初识"></a>密码学初识</h1><h5 id="1-首先最常见的就是base64、base32、base16等对我现在来说最常见的一些加密方式。"><a href="#1-首先最常见的就是base64、base32、base16等对我现在来说最常见的一些加密方式。" class="headerlink" title="1.首先最常见的就是base64、base32、base16等对我现在来说最常见的一些加密方式。"></a>1.首先最常见的就是base64、base32、base16等对我现在来说最常见的一些加密方式。</h5><p>现在先来了解一下这三种加密方式的区别：</p>
-<p>1.<strong>base16</strong></p>
-<p>  先从最简单的开始吧！<br>  Base16编码就是将ASCII字符集中可打印的字符(数字0-9和字母A-F)对应的<strong>二进制字节数据</strong>进行编码,编码的方式（==简单来说，你看到一段字符，其中只有0-9的数字和大写字母A-F，那么它有极大的可能是base16加密方式加密的信息==）<br>  1.将数据(根据ASCII编码,UTF-8编码等)转成对应的二进制数,不足8比特位高位补0.然后将所有的二进制全部串起来,4个二进制位为一组,转化成对应十进制数.</p>
-<p>2.根据十进制数值找到Base16编码表里面对应的字符.Base16是4个比特位表示一个字符,所以原始是1个字节(8个比特位)刚好可以分成两组,也就是说原先如果使用ASCII编码后的一个字符,现在转化成两个字符.数据量是原先的2倍.<br>         base16的编码表：<br> <img src="https://img-blog.csdnimg.cn/20190326122936492.png#" alt="在这里插入图片描述"><br>2.<strong>base32</strong><br>base32 只比base16稍微麻烦一点而已，Base32使用了ASCII编码中可打印的32个字符(大写字母A-Z和数字2-7)对<strong>任意字节数据</strong>进行编码，==见到由26个大写字母和2-7的阿拉伯数字和=组成的一串字符基本上就可以尝试用base32的方式解密==<br>复杂一点说就是Base32将串起来的二进制数据按照5个二进制位分为一组,由于传输数据的单位是字节(即8个二进制位).所以分割之前的二进制位数是40的倍数(40是5和8的最小公倍数).如果不足40位,则在编码后数据补充”=”,一个”=”相当于一个组(5个二进制位),编码后的数据是原先的8/5倍.<br>这是base32编码表：<br><img src="https://img-blog.csdnimg.cn/20190326124748950.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM3NTI1NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>3.<strong>base64</strong><br>base64可以算base加密中最复杂的一种了。<br>Base64编码使用了ASCII编码中64个可打印的字符(大写字母A-Z,小写字母a-z,数字0-9以及”+”,”/“)将<strong>任意字节数据</strong>进行编码，==一段字符中既含有26个大小写字母，还有0~9的数字还有“=”，甚至是“+”和“/”，用base64解密吧！==<br>Base64编码将串起来的二进制以6位进行分割.所以分切之前的二进制位数应该是24的倍数(即6,8的最小公倍数).如果不足24位,则在编码后数据后面添加”=”,一个”=”想当于6个二进制位.数据量是原先的4/3倍.<br>这是base64编码表：<br><img src="https://img-blog.csdnimg.cn/20190326125453323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzM3NTI1NQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h5 id="2-恺撒密码"><a href="#2-恺撒密码" class="headerlink" title="2.恺撒密码"></a>2.恺撒密码</h5><p>又称恺撒加密、恺撒变换、变换加密，是一种最简单且最广为人知的加密技术。它是一种替换加密的技术，明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。<br>恺撒密码最重要的是<strong>偏移</strong>，只要可以找到偏移量，就可以解出来<br>即使使用唯密文攻击，恺撒密码也是一种非常容易破解的加密方式。可能有两种情况需要考虑：<br>（1）攻击者知道（或者猜测）密码中使用了某个简单的替换加密方式，但是不确定是恺撒密码；<br>（2）攻击者知道（或者猜测）使用了恺撒密码，但是不知道其偏移量。<br>对于第一种情况，攻击者可以通过使用诸如<strong>频率分析</strong>或者<strong>样式单词分析</strong>的方法，马上就能从分析结果中看出规律，得出加密者使用的是恺撒密码。<br>对于第二种情况，解决方法更加简单。由于使用恺撒密码进行加密的语言一般都是字母文字系统，因此密码中可能是使用的偏移量也是有限的，例如使用26个字母的英语，它的偏移量最多就是25（偏移量26等同于偏移量0，即明文；偏移量超过26，等同于偏移量1-25）。因此可以通过==穷举法==，很轻易地进行破解。其中一种方法是在表格中写下密文中的某个小片段使用所有可能的偏移量解密后的内容——称为候选明文，然后分析表格中的候选明文是否具有实际含义，得出正确的偏移量，解密整个密文。例如，被选择出的密文片段是”EXXEGOEXSRGI”，从右表中的候选明文，我们可以很快看出其正确的偏移量是4。也可以通过在每一个密文单词的每一个字母下面，纵向写下整个字母表其他字母，然后可以通过分析，得出其中的某一行便是明文。<br>另外一种攻击方法是通过频率分析。当密文长度足够大的情况下，可以先分析密文中每个字母出现的频率，然后将这一频率与正常情况下的该语言字母表中所有字母的出现频率做比较。例如在<strong>英语</strong>中，正常明文中字母==E==和==T==出现的频率特别高，而字母==Q==和==Z==出现的频率特别低，而在法语中出现频率最高的字母是E，最低的是K和W。可以通过这一特点，分析密文字母出现的频率，可以估计出正确的偏移量。此外，有时还可以将频率分析从字母推广到单词，例如英语中，出现频率最高的单词是：the, of, and, a, to, in…。我们可以通过将最常见的单词的所有可能的25组密文，编组成字典，进行分析。比如QEB可能是the，MPQY可能是单词know（当然也可能是aden）。但是频率分析也有其局限性，它对于较短或故意省略元音字母或者其他缩写方式写成的明文加密出来的密文进行解密并不适用。<br>另外，通过多次使用恺撒密码来加密并不能获得更大的安全性，因为使用偏移量A加密得到的结果再用偏移量B加密，等同于使用A+B的偏移量进行加密的结果。<br>凯撒加密法的加密、解密方法==还能够通过同余的数学方法进行计算。首先将字母用数字代替==，A=0，B=1，…，Z=25。此时偏移量为n的加密方法即为：<br>　　En(x)=(x+n)mod26{\displaystyle E_{n}(x)=(x+n)\mod 26}<br>　　解密就是：<br>　　Dn(x)=(x−n)mod26{\displaystyle D_{n}(x)=(x-n)\mod 26}</p>
+  
+    <a href="/2019/04/01/密码学/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/01/密码学/" data-id="cjv0jv2ol0001z0ula38h5mtw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/15/hello-world/" class="article-date">
-  <time datetime="2019-03-14T23:06:44.388Z" itemprop="datePublished">2019-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/15/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/15/hello-world/" data-id="cjv0jv2nc0000z0uloixclcsg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
